@@ -25,7 +25,7 @@ pipeline {
 
         stage('Test') {
            steps {
-        // Exécutez les tests Maven par défaut
+        // Exécutez les tests Maven par défaut sont la
             bat 'mvn test -f Employ/pom.xml'
             }
         }
