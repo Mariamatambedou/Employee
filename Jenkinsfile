@@ -18,7 +18,7 @@ pipeline {
 
         stage('Archive JAR') {
             steps {
-                // Archivez le fichier JAR en tant qu'artefact
+                // Archivez le fichier JAR en tant que artefact
                 archiveArtifacts artifacts: 'Employ/target/*.jar', allowEmptyArchive: true
             }
         }
