@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('Clean') {
+            steps {
+                // Supprimez le répertoire existant s'il existe, sans générer d'erreur s'il n'existe pas
+                bat 'rmdir /s /q Employ || exit 0'
+            }
+        }
 
         stage('Clone') {
             steps {
