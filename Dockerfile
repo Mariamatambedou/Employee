@@ -1,5 +1,5 @@
 # Utilisez l'image de base Java 11
-FROM adoptopenjdk/openjdk17:latest
+FROM openjdk:17-jre-slim
 
 # Répertoire de travail dans le conteneur
 WORKDIR /app
