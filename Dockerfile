@@ -1,11 +1,13 @@
-# Utilisez l'image de base Java 11
-FROM openjdk:17-jre-slim
+# syntax=docker/dockerfile:1
 
-# Répertoire de travail dans le conteneur
+FROM eclipse-temurin:17-jdk-jammy
+
 WORKDIR /app
 
-# Copiez le fichier JAR de votre application dans le conteneur
-COPY target/crud-0.0.1-SNAPSHOT.jar /app/
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:resolve
 
-# Commande de démarrage de l'application Spring Boot
-CMD ["java", "-jar", "monapp.jar"]
+COPY src ./src
+
+CMD ["./mvnw", "app:run"]
