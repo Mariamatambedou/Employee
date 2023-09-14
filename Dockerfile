@@ -19,7 +19,7 @@ COPY src ./src
 RUN ./mvnw clean install
 
 # Créez une image Docker légère basée sur l'image adoptopenjdk:17-jre
-FROM adoptopenjdk:17-jre-hotspot
+FROM openjdk:17-jre-slim
 
 # Copiez le fichier JAR construit à partir de l'étape précédente
 COPY --from=builder /app/target/crud-*.jar /app/app.jar
